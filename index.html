@@ -1026,43 +1026,43 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Custom color based on the latest image: a light lavender/ash */
-        .bg-light-ash {
-            background-color: #E8E6E0;
-        }
+        /* Custom colors removed, using Tailwind utility classes for soft white background and softer borders */
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
     <!-- Main content area (above the footer, kept empty for user's actual content) -->
-    <!-- Setting main background to a slight gray to contrast with the soft ash footer -->
+    <!-- Setting main background to a slight gray to contrast with the soft white footer -->
     <main class="flex-grow bg-gray-100">
         <!-- Your main website content will go here -->
     </main>
 
-    <!-- Footer Section (Atar) - Full area changed to Light Ash/Lavender color with no internal box or border -->
-    <footer class="bg-light-ash py-8 w-full border-t border-gray-300 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-700">
+    <!-- Footer Section (Atar) - Changed to Soft White/Ash Color (bg-gray-50) -->
+    <footer class="bg-gray-50 py-8 w-full border-t border-gray-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Copyright and Year -->
-            <!-- The structure is simplified as per the new image -->
-            <p class="text-base font-light mb-2">
-                Copyright © (2021-2023) Winpku
-            </p>
+            <!-- Inner content box: Changed to Soft White/Ash Color (bg-gray-50) and softer gray border -->
+            <div class="bg-gray-50 text-gray-900 p-6 md:p-8 rounded-lg text-center mx-auto max-w-sm md:max-w-md border-2 border-gray-400 shadow-xl">
+                
+                <!-- Copyright and Year -->
+                <p class="text-sm font-light mb-4 text-gray-700">
+                    © 2021-2023 Winpku
+                </p>
 
-            <!-- Powered by Section - Updated text to 'Shahnar Family' and set to Dark Green color -->
-            <p class="text-base font-semibold mb-4">
-                Powered by <span class="text-green-700 font-bold">Shahnar Family</span>
-            </p>
+                <!-- Powered by Section -->
+                <p class="text-base font-semibold mb-4 text-gray-700">
+                    Powered by <span class="text-blue-600">Shahnar Himu Vai</span>
+                </p>
 
-            <!-- Link Section -->
-            <div class="flex flex-wrap justify-center space-x-3 text-sm font-medium text-gray-700">
-                <!-- Links separated by '|' and adjusted spacing -->
-                <a href="#" class="hover:text-gray-900 transition duration-300">About us</a>
-                <span class="text-gray-500">|</span>
-                <a href="#" class="hover:text-gray-900 transition duration-300 whitespace-nowrap">Policy & Terms</a>
-                <span class="text-gray-500">|</span>
-                <a href="#" class="hover:text-gray-900 transition duration-300 whitespace-nowrap">Contact us</a>
+                <!-- Link Section -->
+                <div class="flex flex-wrap justify-center space-x-4 text-sm font-medium">
+                    <!-- Links changed to dark text with blue hover effect -->
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300">About us</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 whitespace-nowrap">Policy & Terms</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 whitespace-nowrap">Contact us</a>
+                </div>
             </div>
 
         </div>
@@ -1070,6 +1070,7 @@
 
 </body>
 </html>
+
 
 
     </p>
@@ -1124,10 +1125,6 @@
     </script>
 </body>
 </html>
-
-
-
-
 
 
 
