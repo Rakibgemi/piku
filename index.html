@@ -58,12 +58,97 @@
     <header class="bg-dark-green shadow-xl py-3 px-4 sticky top-0 z-10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
             <!-- Logo/Site Name -->
-            <div class="flex items-center space-x-2">
-                <img src="https://placehold.co/40x40/FFEB3B/1B5E20?text=B" alt="Logo" class="rounded-full border-2 border-white">
-                <span class="text-xl font-extrabold tracking-wider text-white">
-                    baa i365 <span class="text-custom-yellow">LIVE</span>
-                </span>
-            </div>
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baajji365 Logo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ফন্টটি লোড হওয়ার আগে যেন ফাঁকা না থাকে, তার জন্য ব্যাকআপ স্যান্স-সেরিফ ফন্ট দেওয়া হলো */
+        body {
+            margin: 20px;
+            background-color: #f0f0f0; /* শুধু দেখার সুবিধার জন্য হালকা ধূসর ব্যাকগ্রাউন্ড */
+        }
+
+        .logo-container {
+            background-color: #218838; /* সবুজ পটভূমি */
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1;
+            color: #FFFFFF;
+            position: relative;
+        }
+
+        .baaji-part1 {
+            color: #FFFFFF; /* 'baa' এর জন্য সাদা */
+        }
+
+        .baaji-j {
+            color: #E63946; /* 'j' এর জন্য লাল */
+        }
+
+        .baaji-i {
+            color: #FFFFFF; /* 'i' এর জন্য সাদা */
+        }
+
+        .baaji-dot {
+            color: #E63946; /* 'i' এর উপরের বিন্দুর জন্য লাল */
+        }
+
+        .baaji-365 {
+            color: #FAD100; /* '365' এর জন্য হলুদ */
+        }
+
+        .logo-live {
+            display: block;
+            font-size: 14px;
+            color: #CCCCCC; /* 'LIVE' এর ধূসর রং */
+            letter-spacing: 2px;
+            position: absolute;
+            bottom: -8px;
+            left: 45%;
+            transform: translateX(-50%);
+        }
+
+        .profile-pic-placeholder {
+            width: 50px;
+            height: 50px;
+            /* আপনার দেওয়া ছবির ডাইরেক্ট লিঙ্ক */
+            background-image: url('https://i.imgur.com/hkYmaPX.png'); 
+            
+            background-size: cover;
+            background-position: center;
+            background-color: transparent; 
+            border-radius: 50%;
+            margin-left: 15px;
+            border: 2px solid #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <span class="logo-text">
+            <span class="baaji-part1">baa</span><span class="baaji-j">j</span><span class="baaji-i">i</span><span class="baaji-dot">.</span><span class="baaji-365">365</span>
+            <span class="logo-live">LIVE</span>
+        </span>
+        <div class="profile-pic-placeholder"></div>
+    </div>
+    
+</body>
+</html>
             
             <!-- Menu Links (Matching the original site's structure) -->
             <nav class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm font-semibold">
@@ -794,6 +879,7 @@
     </script>
 </body>
 </html>
+
 
 
 
