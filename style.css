@@ -1,0 +1,33 @@
+/* Custom Colors */
+.bg-custom-green {
+  background-color: #2F7C32;
+}
+.bg-dark-green {
+  background-color: #1B5E20;
+}
+.text-custom-yellow {
+  color: #FFEB3B;
+}
+
+/* Font */
+body {
+  font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+}
+
+/* Category Box Style */
+.category-box {
+  background-color: #388E3C;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.category-box:hover {
+  transform: scale(1.05);
+  background-color: #4CAF50;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
