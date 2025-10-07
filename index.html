@@ -246,6 +246,56 @@
                 <p class="text-lg text-white/80">Baaji365 OFFICIAL CUSTOMER SERVICE LIST দেখতে এখানে ক্লিক করুন</p>
             </section>
 
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer with Border</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* কন্টেন্টকে নিচের দিকে ঠেলে দেয় */
+            align-items: center; /* হরাইজন্টালি মাঝখানে আনে */
+            background-color: #f0f0f0; /* শুধু দেখার সুবিধার জন্য হালকা ধূসর ব্যাকগ্রাউন্ড */
+        }
+
+        .footer-wrapper {
+            width: 100%; /* সম্পূর্ণ প্রস্থ জুড়ে */
+            max-width: 1200px; /* একটি নির্দিষ্ট সর্বোচ্চ প্রস্থ (আপনার প্রয়োজন অনুযায়ী পরিবর্তন করতে পারেন) */
+            padding: 20px; /* বর্ডারের ভেতরের দিকে প্যাডিং */
+            box-sizing: border-box; /* প্যাডিং ও বর্ডার যেন প্রস্থের বাইরে না যায় */
+            border: 2px solid #5cb85c; /* সবুজ বর্ডার */
+            background-color: #218838; /* বর্ডারের ভিতরের সবুজ ব্যাকগ্রাউন্ড */
+            display: flex; /* ভেতরের উপাদানগুলিকে ফ্লেক্স করে */
+            justify-content: center; /* মাঝখানে আনার জন্য */
+            margin-bottom: 20px; /* ফুটার এর নিচে সামান্য মার্জিন */
+            flex-shrink: 0; /* ফুটার যেন সংকুচিত না হয় */
+        }
+
+        .footer-image {
+            display: block; /* ইমেজকে ব্লক লেভেল এলিমেন্ট করে */
+            max-width: 100%; /* প্যারেন্ট কন্টেইনারের চেয়ে বড় হবে না */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="flex-grow: 1;"></div> 
+
+    <div class="footer-wrapper">
+        <img src="Footer.jpg" alt="Official Baaji365" class="footer-image">
+    </div>
+    
+</body>
+</html>
+
             <!-- About and Info Sections -->
             <section class="space-y-8 pt-4">
                 <!-- Baaji365 Live Contact Box -->
@@ -879,6 +929,7 @@
     </script>
 </body>
 </html>
+
 
 
 
