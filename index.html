@@ -1,797 +1,713 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winpku Replica Site</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Green Color for background, closely matching the screenshot */
-        .bg-custom-green {
-            background-color: #2F7C32; /* Deep, bright green */
-        }
-        /* Darker Green for the navbar */
-        .bg-dark-green {
-            background-color: #1B5E20; 
-        }
-        .text-custom-yellow {
-            color: #FFEB3B; /* Bright yellow for highlights */
-        }
-        .text-custom-orange {
-            color: #FF9800; /* Orange for headings (not used extensively here, but kept for variation) */
-        }
-        body {
-            /* Using Noto Sans Bengali for proper Bengali text display */
-            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
-        }
-        .category-box {
-            background-color: #388E3C; /* Slightly lighter green box */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .category-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 2px 4px -2px rgba(0, 0, 0, 0.6);
-        }
-        .info-box {
-            /* Adjusted info box style for better visibility and contrast */
-            border: 4px solid #388E3C;
-            background-color: #FFFFFF; /* White background for the main text blocks */
-            color: #388E3C;
-        }
-        .dark-info-box {
-            border: 2px solid #FFEB3B;
-            background-color: #388E3C; /* Dark background for special contact info */
-            color: white;
-        }
-        .agent-table-container {
-            overflow-x: auto; /* Enable horizontal scroll on small screens */
-            -webkit-overflow-scrolling: touch;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winpku Replica Site</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Green Color for background, closely matching the screenshot */
+        .bg-custom-green {
+            background-color: #2F7C32; /* Deep, bright green */
+        }
+        /* Darker Green for the navbar */
+        .bg-dark-green {
+            background-color: #1B5E20; 
+        }
+        .text-custom-yellow {
+            color: #FFEB3B; /* Bright yellow for highlights */
+        }
+        .text-custom-orange {
+            color: #FF9800; /* Orange for headings (not used extensively here, but kept for variation) */
+        }
+        body {
+            /* Using Noto Sans Bengali for proper Bengali text display */
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+        }
+        .category-box {
+            background-color: #388E3C; /* Slightly lighter green box */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .category-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 2px 4px -2px rgba(0, 0, 0, 0.6);
+        }
+        .info-box {
+            /* Adjusted info box style for better visibility and contrast */
+            border: 4px solid #388E3C;
+            background-color: #FFFFFF; /* White background for the main text blocks */
+            color: #388E3C;
+        }
+        .dark-info-box {
+            border: 2px solid #FFEB3B;
+            background-color: #388E3C; /* Dark background for special contact info */
+            color: white;
+        }
+        .agent-table-container {
+            overflow-x: auto; /* Enable horizontal scroll on small screens */
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
 </head>
 <body class="bg-custom-green min-h-screen text-white">
 
-    <!-- Header/Navigation Bar -->
-    <header class="bg-dark-green shadow-xl py-3 px-4 sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
-            <!-- Logo/Site Name -->
-            <div class="flex items-center space-x-2">
-                <img src="https://placehold.co/40x40/FFEB3B/1B5E20?text=B" alt="Logo" class="rounded-full border-2 border-white">
-                <span class="text-xl font-extrabold tracking-wider text-white">
-                    baa i365 <span class="text-custom-yellow">LIVE</span>
-                </span>
-            </div>
-            
-            <!-- Menu Links (Matching the original site's structure) -->
-            <nav class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm font-semibold">
-                <!-- ALL HEADER LINKS ARE NOW FUNCTIONAL -->
-                <a href="#" onclick="showHome()" class="hover:text-custom-yellow transition duration-150">HOME</a>
-                <a href="#" onclick="showDetail('admin')" class="hover:text-custom-yellow transition duration-150">ADMIN <span class="text-xs">&#9662;</span></a>
-                <a href="#" onclick="showDetail('super')" class="hover:text-custom-yellow transition duration-150">SUPER</a>
-                <a href="#" onclick="showDetail('master')" class="hover:text-custom-yellow transition duration-150">MASTER</a>
-                <a href="#" onclick="showDetail('helpline')" class="hover:text-custom-yellow transition duration-150">HELPLINE</a>
-                <a href="#" onclick="showDetail('user-question')" class="hover:text-custom-yellow transition duration-150">USER QUESTION</a>
-                <a href="#" onclick="showDetail('news')" class="hover:text-custom-yellow transition duration-150">BAAJI365 UPDATE NEWS</a>
-                <a href="#" onclick="showDetail('quiz')" class="hover:text-custom-yellow transition duration-150">QUIZ <span class="text-xs">&#9662;</span></a>
-            </nav>
-        </div>
-    </header>
+        <header class="bg-dark-green shadow-xl py-3 px-4 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+                        <div class="flex items-center space-x-2">
+                <img src="https://placehold.co/40x40/FFEB3B/1B5E20?text=B" alt="Logo" class="rounded-full border-2 border-white">
+                <span class="text-xl font-extrabold tracking-wider text-white">
+                    baa i365 <span class="text-custom-yellow">LIVE</span>
+                </span>
+            </div>
+            
+                        <nav class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm font-semibold">
+                                <a href="#" onclick="showHome()" class="hover:text-custom-yellow transition duration-150">HOME</a>
+                <a href="#" onclick="showDetail('admin')" class="hover:text-custom-yellow transition duration-150">ADMIN <span class="text-xs">&#9662;</span></a>
+                <a href="#" onclick="showDetail('super')" class="hover:text-custom-yellow transition duration-150">SUPER</a>
+                <a href="#" onclick="showDetail('master')" class="hover:text-custom-yellow transition duration-150">MASTER</a>
+                <a href="#" onclick="showDetail('helpline')" class="hover:text-custom-yellow transition duration-150">HELPLINE</a>
+                <a href="#" onclick="showDetail('user-question')" class="hover:text-custom-yellow transition duration-150">USER QUESTION</a>
+                <a href="#" onclick="showDetail('news')" class="hover:text-custom-yellow transition duration-150">BAAJI365 UPDATE NEWS</a>
+                <a href="#" onclick="showDetail('quiz')" class="hover:text-custom-yellow transition duration-150">QUIZ <span class="text-xs">&#9662;</span></a>
+            </nav>
+        </div>
+    </header>
 
-    <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
-        
-        <!-- ============================================== -->
-        <!-- HOME VIEW CONTENT -->
-        <!-- ============================================== -->
-        <div id="home-view" class="">
-            <!-- Welcome Message Section -->
-            <section class="text-center space-y-4">
-                <h1 class="text-3xl md:text-5xl font-extrabold uppercase leading-tight text-custom-yellow">
-                    WELCOME, WELCOME TO Winpku.com - KEEP FOCUS ON<br>
-                    Baaji365 Agent list FOR ANY KINDS OF UPDATE!
-                </h1>
-                <!-- Caution Box (Red & Prominent) -->
-                <div class="border-4 border-red-500 bg-red-100 text-red-800 p-3 mx-auto max-w-4xl text-sm md:text-base font-semibold rounded-xl shadow-xl">
-                    <span class="font-extrabold text-red-600">CAUTION:</span> BEFORE ASKING TO BECOME AN AGENT, PLEASE READ CAREFULLY ALL THE INFORMATION GIVEN ABOUT Baaji365 agent list HERE
-                </div>
-            </section>
+    <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
+        
+                                <div id="home-view" class="">
+                        <section class="text-center space-y-4">
+                <h1 class="text-3xl md:text-5xl font-extrabold uppercase leading-tight text-custom-yellow">
+                    WELCOME, WELCOME TO Winpku.com - KEEP FOCUS ON<br>
+                    Baaji365 Agent list FOR ANY KINDS OF UPDATE!
+                </h1>
+                                <div class="border-4 border-red-500 bg-red-100 text-red-800 p-3 mx-auto max-w-4xl text-sm md:text-base font-semibold rounded-xl shadow-xl">
+                    <span class="font-extrabold text-red-600">CAUTION:</span> BEFORE ASKING TO BECOME AN AGENT, PLEASE READ CAREFULLY ALL THE INFORMATION GIVEN ABOUT Baaji365 agent list HERE
+                </div>
+            </section>
 
-            <!-- Quiz/Banner Section Placeholder -->
             <section class="text-center py-6">
-                <h2 class="text-2xl md:text-3xl font-bold uppercase text-white bg-black/50 inline-block px-6 py-2 mb-4 rounded-lg">
-                    SHAHRIAR FAMILY BIGGEST QUIZ 2024
-                </h2>
-                <div class="max-w-xl mx-auto border-4 border-white rounded-xl overflow-hidden shadow-2xl">
-           <img src="himuvai.jpg" alt="Shahriar Family Biggest Quiz 2024">
-<img src="baaji365_agent_list.jpg" alt="Official Baaji365 Agent List">
-                    <img src="https://placehold.co/800x450/1B5E20/FFEB3B?text=SHAHRIAR+FAMILY+BIGGEST+QUIZ+2024" alt="Shahriar Family Biggest Quiz 2024 Banner" class="w-full h-auto object-cover">
-                </div>
-                <a href="#" class="mt-4 inline-block px-8 py-3 bg-custom-yellow text-[#1B5E20] font-extrabold text-xl rounded-full shadow-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-105 border-2 border-[#1B5E20]">
-                    রেজিস্ট্রেশন করুন
-                </a>
+                <img src="Himuvai.jpg" alt="Shahriar Family Biggest Quiz 2024" class="w-full h-auto object-cover max-w-4xl mx-auto rounded-xl shadow-2xl">
             </section>
-
-            <!-- Category/Service Blocks Section (Responsive Grid) -->
-            <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
-                
-                <!-- Category Block: ADMIN -->
-                <div onclick="showDetail('admin')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
-                    <div class="text-6xl mb-2">👨‍💻</div>
-                    <h3 class="text-xl font-bold uppercase text-custom-yellow">ADMIN</h3>
-                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL ADMIN LIST দেখতে এখানে ক্লিক করুন</p>
-                </div>
-
-                <!-- Category Block: SUB ADMIN -->
-                <div onclick="showDetail('sub-admin')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
-                    <div class="text-6xl mb-2">🧑‍💼</div>
-                    <h3 class="text-xl font-bold uppercase text-custom-yellow">SUB ADMIN</h3>
-                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL SUB ADMIN LIST দেখতে এখানে ক্লিক করুন</p>
-                </div>
-
-                <!-- Category Block: SUPER -->
-                <div onclick="showDetail('super')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
-                    <div class="text-6xl mb-2">⭐</div>
-                    <h3 class="text-xl font-bold uppercase text-custom-yellow">SUPER</h3>
-                    <p class="text-xs text-white/90 mt-1">Baaji365 SUPER AGENT LIST দেখতে এখানে ক্লিক করুন</p>
-                </div>
-
-                <!-- Category Block: MASTER -->
-                <div onclick="showDetail('master')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
-                    <div class="text-6xl mb-2">👑</div>
-                    <h3 class="text-xl font-bold uppercase text-custom-yellow">MASTER</h3>
-                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL MASTER AGENT দের সাথে কথা বলতে ক্লিক করুন</p>
-                </div>
-
-                <!-- Category Block: CUSTOMER SERVICE (Now links to helpline for consistency) -->
-                <div onclick="showDetail('helpline')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
-                    <div class="text-6xl mb-2">📞</div>
-                    <h3 class="text-xl font-bold uppercase text-custom-yellow">CUSTOMER SERVICE</h3>
-                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL CUSTOMER SERVICE LIST দেখতে এখানে ক্লিক করুন</p>
-                </div>
-            </section>
-
-            <!-- Customer Service Text Header -->
-            <section class="text-center pt-8">
-                <h2 class="text-2xl md:text-3xl font-bold uppercase text-white bg-black/50 inline-block px-6 py-2 mb-4 rounded-lg">
-                    CUSTOMER SERVICE
-                </h2>
-                <p class="text-lg text-white/80">Baaji365 OFFICIAL CUSTOMER SERVICE LIST দেখতে এখানে ক্লিক করুন</p>
-            </section>
-
-            <!-- About and Info Sections -->
-            <section class="space-y-8 pt-4">
-                <!-- Baaji365 Live Contact Box -->
-                <div class="dark-info-box p-4 rounded-xl text-center max-w-2xl mx-auto shadow-lg">
-                    <h3 class="text-xl font-bold text-custom-yellow uppercase mb-2">baa i365 live</h3>
-                    <p class="text-base text-white/90">
-                        <span class="text-2xl">😎</span>
-                        <br>
-                        <span class="font-mono text-xl font-bold">+97451070027</span>
-                    </p>
-                    <a href="#" class="inline-block mt-3 px-4 py-2 bg-custom-yellow text-[#1B5E20] font-bold rounded-lg shadow-md hover:bg-yellow-400 transition duration-300">
-                        WhatsApp Link: Click Here
-                    </a>
-                </div>
-
-                <!-- What is the Official Baaji365 Agent list? Block (White background for readability) -->
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green">
-                    <div class="text-center mb-4">
-                        <h2 class="text-xl font-bold text-custom-green mb-2">Why baaji365 agent list</h2>
-                        <h2 class="text-2xl md:text-3xl font-bold text-custom-green">What is the Official Baaji365 Agent list?</h2>
-                    </div>
-
-                    <p class="text-base leading-relaxed">
-                        Baaji365 is one of the world's most popular betting sites. Millions of people search for it on Google, Bing, and other engines. Baaji365 is a 4-layer-based betting site. And there is no option to open a Baaji365 user account or a Baaji365 agent account on your own. 
-                        There is a need upper level to create those accounts. All the <span class="font-extrabold text-custom-green">Baaji365 Admin</span>, <span class="font-extrabold text-custom-green">Baaji365 Super Agent</span>, and <span class="font-extrabold text-custom-green">Baaji365 Master agent lists</span> are stored on one official website and that's called Baaji365 official agent list. That is the brief and let's get into it in detail about Baaji365.
-                    </p>
-                </div>
-            </section>
-        </div> 
-
-        <!-- ============================================== -->
-        <!-- DETAIL VIEW CONTAINER (Initially Hidden) -->
-        <!-- ============================================== -->
-        <div id="detail-view" class="hidden min-h-screen">
             
-            <!-- BACK BUTTON (Visible in all detail sections) -->
-            <button onclick="showHome()" class="flex items-center space-x-2 px-6 py-2 mb-8 bg-custom-yellow text-[#1B5E20] font-bold rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-[1.02]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                </svg>
-                <span>হোম পেজে ফিরে যান</span>
-            </button>
+            <section class="text-center py-6">
+                <img src="baaji365_agent_list.jpg" alt="Official Baaji365 Agent List" class="w-full h-auto object-cover max-w-4xl mx-auto rounded-xl shadow-2xl">
+            </section>
 
-            <!-- ADMIN Detail Content -->
-            <div id="admin-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">ADMIN লিস্ট</h2>
-                
-                <!-- Rules/Warnings -->
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
-                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে বাজি৩৬৫ নিয়ম গুলো জেনে নিন!!</p>
-                    <p class="text-base font-semibold text-custom-green mb-2">
-                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন বাজি৩৬৫ সাইটঃ <a href="https://baaji365.live" class="text-red-500 hover:underline font-extrabold">BAAJI365.LIVE</a>
-                    </p>
-                    <p class="text-base font-semibold text-custom-green">
-                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
-                    </p>
-                </div>
+                        <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
+                
+                                <div onclick="showDetail('admin')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
+                    <div class="text-6xl mb-2">👨‍💻</div>
+                    <h3 class="text-xl font-bold uppercase text-custom-yellow">ADMIN</h3>
+                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL ADMIN LIST দেখতে এখানে ক্লিক করুন</p>
+                </div>
 
-                <!-- Agent Table -->
-                <div class="agent-table-container">
-                    <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                        <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                            <tr>
-                                <th class="py-3 px-2 md:px-4">ID NO</th>
-                                <th class="py-3 px-2 md:px-4">NAME</th>
-                                <th class="py-3 px-2 md:px-4">TELG</th>
-                                <th class="py-3 px-2 md:px-4">WHTS</th>
-                                <th class="py-3 px-2 md:px-4">PHONE NUMBER</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                            <tr class="hover:bg-green-50 transition duration-150">
-                                <td class="py-3 px-2 md:px-4 font-bold">1</td>
-                                <td class="py-3 px-2 md:px-4">Shahriar Imtieaz</td>
-                                <td class="py-3 px-2 md:px-4 text-red-500">❌</td>
-                                <td class="py-3 px-2 md:px-4 text-green-600">✅</td>
-                                <td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97431079027</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                <div onclick="showDetail('sub-admin')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
+                    <div class="text-6xl mb-2">🧑‍💼</div>
+                    <h3 class="text-xl font-bold uppercase text-custom-yellow">SUB ADMIN</h3>
+                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL SUB ADMIN LIST দেখতে এখানে ক্লিক করুন</p>
+                </div>
 
-            <!-- SUB ADMIN Detail Content -->
-            <div id="sub-admin-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">SUB ADMIN লিস্ট</h2>
-                
-                <!-- Rules/Warnings -->
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
-                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে বাজি৩৬৫ নিয়ম গুলো জেনে নিন!!</p>
-                    <p class="text-base font-semibold text-custom-green mb-2">
-                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
-                    </p>
-                </div>
-                
-                <p class="text-lg font-semibold text-white/90">সাইট এডমিন <span class="text-custom-yellow font-bold">Shahriar Imtieaz</span> এর অধীনে সর্বমোট সাব এডমিন আছে <span class="text-custom-yellow font-extrabold">7</span> জন</p>
+                                <div onclick="showDetail('super')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
+                    <div class="text-6xl mb-2">⭐</div>
+                    <h3 class="text-xl font-bold uppercase text-custom-yellow">SUPER</h3>
+                    <p class="text-xs text-white/90 mt-1">Baaji365 SUPER AGENT LIST দেখতে এখানে ক্লিক করুন</p>
+                </div>
 
-                <!-- Agent Table -->
-                <div class="agent-table-container">
-                    <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                        <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                            <tr>
-                                <th class="py-3 px-2 md:px-4">ID NO</th>
-                                <th class="py-3 px-2 md:px-4">AGENT</th>
-                                <th class="py-3 px-2 md:px-4">APP</th>
-                                <th class="py-3 px-2 md:px-4">PHONE NUMBER</th>
-                                <th class="py-3 px-2 md:px-4">COMPLAIN</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                            <!-- Sub Admin Data -->
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">55</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046524544</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">60</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">58</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917431079027</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">80</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">70</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">31</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">67</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918367817305</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                <div onclick="showDetail('master')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
+                    <div class="text-6xl mb-2">👑</div>
+                    <h3 class="text-xl font-bold uppercase text-custom-yellow">MASTER</h3>
+                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL MASTER AGENT দের সাথে কথা বলতে ক্লিক করুন</p>
+                </div>
 
-            <!-- SUPER Detail Content -->
-            <div id="super-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">SUPER এজেন্ট লিস্ট</h2>
-                
-                <!-- Rules/Warnings -->
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
-                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে Baaji365 এর নিয়ম গুলো জেনে নিন!!</p>
-                    <p class="text-base font-semibold text-custom-green mb-2">
-                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন Baaji365 সাইটঃ <a href="https://baaji.cc" class="text-red-500 hover:underline font-extrabold">baaji.cc</a>
-                    </p>
-                    <p class="text-base font-semibold text-custom-green">
-                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
-                    </p>
-                </div>
-                
-                <!-- Super Agent Data Groups -->
-                <div class="space-y-6">
-                    <!-- Group 1 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 70 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">113</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Group 2 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 31 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">131</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <div onclick="showDetail('helpline')" class="category-box p-4 rounded-xl text-center flex flex-col items-center justify-center cursor-pointer">
+                    <div class="text-6xl mb-2">📞</div>
+                    <h3 class="text-xl font-bold uppercase text-custom-yellow">CUSTOMER SERVICE</h3>
+                    <p class="text-xs text-white/90 mt-1">Baaji365 OFFICIAL CUSTOMER SERVICE LIST দেখতে এখানে ক্লিক করুন</p>
+                </div>
+            </section>
 
-                    <!-- Group 3 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 60 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">135</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024657</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Group 4 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">118</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">118</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <section class="text-center pt-8">
+                <h2 class="text-2xl md:text-3xl font-bold uppercase text-white bg-black/50 inline-block px-6 py-2 mb-4 rounded-lg">
+                    CUSTOMER SERVICE
+                </h2>
+                <p class="text-lg text-white/80">Baaji365 OFFICIAL CUSTOMER SERVICE LIST দেখতে এখানে ক্লিক করুন</p>
+            </section>
 
-                    <!-- Group 5 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 9 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">162</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024773</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">101</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046524544</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">133</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010824</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">165</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010376</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">154</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023354</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">111</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046654548</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">138</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+966582315130</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">107</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022728</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">160</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <section class="space-y-8 pt-4">
+                                <div class="dark-info-box p-4 rounded-xl text-center max-w-2xl mx-auto shadow-lg">
+                    <h3 class="text-xl font-bold text-custom-yellow uppercase mb-2">baa i365 live</h3>
+                    <p class="text-base text-white/90">
+                        <span class="text-2xl">😎</span>
+                        <br>
+                        <span class="font-mono text-xl font-bold">+97451070027</span>
+                    </p>
+                    <a href="#" class="inline-block mt-3 px-4 py-2 bg-custom-yellow text-[#1B5E20] font-bold rounded-lg shadow-md hover:bg-yellow-400 transition duration-300">
+                        WhatsApp Link: Click Here
+                    </a>
+                </div>
 
-                    <!-- Group 6 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 80 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">140</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green">
+                    <div class="text-center mb-4">
+                        <h2 class="text-xl font-bold text-custom-green mb-2">Why baaji365 agent list</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-custom-green">What is the Official Baaji365 Agent list?</h2>
+                    </div>
 
-            <!-- MASTER Detail Content -->
-            <div id="master-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">MASTER এজেন্ট লিস্ট</h2>
-                
-                <!-- Rules/Warnings -->
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
-                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে Baaji365 এর নিয়ম গুলো জেনে নিন!!</p>
-                    <p class="text-base font-semibold text-custom-green mb-2">
-                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন Baaji365 সাইটঃ <a href="https://baaji.cc" class="text-red-500 hover:underline font-extrabold">Baaji.cc</a>
-                    </p>
-                    <p class="text-base font-semibold text-custom-green mb-2">
-                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
-                    </p>
-                    <p class="text-base font-semibold text-custom-green">
-                        **এজেন্ট পাসওয়ার্ড পরিবর্তন করে দিলে - আপনি একাউন্টে ঢুকে আবার পাসওয়ার্ড পরিবর্তন করে নিবেন। এজেন্ট যাতে কোন ভাবেই আপনার পাসওয়ার্ড না জানে। আপনার পাসওয়ার্ড আপনি কাউকেই দিবেন না - সে যেই হউক না কেন।
-                    </p>
-                </div>
+                    <p class="text-base leading-relaxed">
+                        Baaji365 is one of the world's most popular betting sites. Millions of people search for it on Google, Bing, and other engines. Baaji365 is a 4-layer-based betting site. And there is no option to open a Baaji365 user account or a Baaji365 agent account on your own. 
+                        There is a need upper level to create those accounts. All the <span class="font-extrabold text-custom-green">Baaji365 Admin</span>, <span class="font-extrabold text-custom-green">Baaji365 Super Agent</span>, and <span class="font-extrabold text-custom-green">Baaji365 Master agent lists</span> are stored on one official website and that's called Baaji365 official agent list. That is the brief and let's get into it in detail about Baaji365.
+                    </p>
+                </div>
+            </section>
+        </div> 
 
-                <!-- Master Agent Data Groups -->
-                <div class="space-y-6">
-                    <!-- Group 1 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 80 এর অধীনে সুপার এজেন্ট 140 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1400</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1402</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017928</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1401</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016025742</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Group 2 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 160 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 4 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1757</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+60174962757</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1210</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1443</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2359</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918436704359</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Group 3 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 165 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2695</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016018247</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1125</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010376</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <div id="detail-view" class="hidden min-h-screen">
+            
+                        <button onclick="showHome()" class="flex items-center space-x-2 px-6 py-2 mb-8 bg-custom-yellow text-[#1B5E20] font-bold rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-[1.02]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                <span>হোম পেজে ফিরে যান</span>
+            </button>
 
-                    <!-- Group 4 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 31 এর অধীনে সুপার এজেন্ট 131 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1301</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1307</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023325</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1305</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917047105750</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div id="admin-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">ADMIN লিস্ট</h2>
+                
+                                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
+                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে বাজি৩৬৫ নিয়ম গুলো জেনে নিন!!</p>
+                    <p class="text-base font-semibold text-custom-green mb-2">
+                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন বাজি৩৬৫ সাইটঃ <a href="https://baaji365.live" class="text-red-500 hover:underline font-extrabold">BAAJI365.LIVE</a>
+                    </p>
+                    <p class="text-base font-semibold text-custom-green">
+                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
+                    </p>
+                </div>
 
-                    <!-- Group 5 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 154 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1166</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010476</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1009</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024558</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1535</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022490</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Group 6 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 101 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 6 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2222</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917602435193</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1676</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917384459225</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1111</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97430577400</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1212</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024558</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1365</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919076527641</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1515</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97474751206</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <div class="agent-table-container">
+                    <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                        <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                            <tr>
+                                <th class="py-3 px-2 md:px-4">ID NO</th>
+                                <th class="py-3 px-2 md:px-4">NAME</th>
+                                <th class="py-3 px-2 md:px-4">TELG</th>
+                                <th class="py-3 px-2 md:px-4">WHTS</th>
+                                <th class="py-3 px-2 md:px-4">PHONE NUMBER</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                            <tr class="hover:bg-green-50 transition duration-150">
+                                <td class="py-3 px-2 md:px-4 font-bold">1</td>
+                                <td class="py-3 px-2 md:px-4">Shahriar Imtieaz</td>
+                                <td class="py-3 px-2 md:px-4 text-red-500">❌</td>
+                                <td class="py-3 px-2 md:px-4 text-green-600">✅</td>
+                                <td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97431079027</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <!-- Group 7 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সুপার এজেন্ট 118 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1897</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917047105254</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1325</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917074378162</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div id="sub-admin-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">SUB ADMIN লিস্ট</h2>
+                
+                                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
+                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে বাজি৩৬৫ নিয়ম গুলো জেনে নিন!!</p>
+                    <p class="text-base font-semibold text-custom-green mb-2">
+                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
+                    </p>
+                </div>
+                
+                <p class="text-lg font-semibold text-white/90">সাইট এডমিন <span class="text-custom-yellow font-bold">Shahriar Imtieaz</span> এর অধীনে সর্বমোট সাব এডমিন আছে <span class="text-custom-yellow font-extrabold">7</span> জন</p>
 
-                    <!-- Group 8 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 70 এর অধীনে সুপার এজেন্ট 113 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 13 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1666</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022472</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1145</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91 80160 25319</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1126</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91016025510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1174</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024879</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1126</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91016025510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <div class="agent-table-container">
+                    <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                        <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                            <tr>
+                                <th class="py-3 px-2 md:px-4">ID NO</th>
+                                <th class="py-3 px-2 md:px-4">AGENT</th>
+                                <th class="py-3 px-2 md:px-4">APP</th>
+                                <th class="py-3 px-2 md:px-4">PHONE NUMBER</th>
+                                <th class="py-3 px-2 md:px-4">COMPLAIN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                                        <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">55</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046524544</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">60</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">58</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917431079027</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">80</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">70</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">31</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            <tr class="hover:bg-green-50 transition duration-150"><td class="py-3 px-2 md:px-4 font-bold">67</td><td class="py-3 px-2 md:px-4">সাব এডমিন</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918367817305</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <!-- Group 9 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 162 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1049</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917501394049</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1007</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024773</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div id="super-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">SUPER এজেন্ট লিস্ট</h2>
+                
+                                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
+                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে Baaji365 এর নিয়ম গুলো জেনে নিন!!</p>
+                    <p class="text-base font-semibold text-custom-green mb-2">
+                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন Baaji365 সাইটঃ <a href="https://baaji.cc" class="text-red-500 hover:underline font-extrabold">baaji.cc</a>
+                    </p>
+                    <p class="text-base font-semibold text-custom-green">
+                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
+                    </p>
+                </div>
+                
+                                <div class="space-y-6">
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 70 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">113</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 31 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">131</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- Group 10 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 60 এর অধীনে সুপার এজেন্ট 135 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 1 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1002</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016027766</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 60 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">135</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024657</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">118</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">118</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- Group 11 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 133 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 4 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1010</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+23058963805</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1747</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024847</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1133</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010824</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1532</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016025404</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 9 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">162</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024773</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">101</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046524544</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">133</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010824</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">165</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010376</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">154</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023354</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">111</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919046654548</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">138</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+966582315130</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">107</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022728</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">160</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- Group 12 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সুপার এজেন্ট 118 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1802</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918348216114</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1801</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 80 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 1 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">140</td><td class="py-3 px-2 md:px-4">সুপার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Group 13 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 107 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1122</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917718206812</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1031</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022728</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div id="master-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">MASTER এজেন্ট লিস্ট</h2>
+                
+                                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-red-500">
+                    <p class="text-lg font-bold text-red-600 mb-3">এজেন্ট দের সাথে লেনদেন এর আগে Baaji365 এর নিয়ম গুলো জেনে নিন!!</p>
+                    <p class="text-base font-semibold text-custom-green mb-2">
+                        **প্রতারনার হাত থেকে বাচতে সবার আগে ভিজিট করুন Baaji365 সাইটঃ <a href="https://baaji.cc" class="text-red-500 hover:underline font-extrabold">Baaji.cc</a>
+                    </p>
+                    <p class="text-base font-semibold text-custom-green mb-2">
+                        **হোয়াটসঅ্যাপ ব্যাতিত অন্য কোন এপ এর মাধ্যমে যোগাযোগ বা লেনদেন করা যাবে না এবং করলে তা গ্রহনযোগ্য হবে না।
+                    </p>
+                    <p class="text-base font-semibold text-custom-green">
+                        **এজেন্ট পাসওয়ার্ড পরিবর্তন করে দিলে - আপনি একাউন্টে ঢুকে আবার পাসওয়ার্ড পরিবর্তন করে নিবেন। এজেন্ট যাতে কোন ভাবেই আপনার পাসওয়ার্ড না জানে। আপনার পাসওয়ার্ড আপনি কাউকেই দিবেন না - সে যেই হউক না কেন।
+                    </p>
+                </div>
 
-                    <!-- Group 14 -->
-                    <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 138 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
-                    <div class="agent-table-container">
-                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
-                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
-                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1843</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010698</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1893</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917478363528</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1198</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+9180160 25664</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                                <div class="space-y-6">
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 80 এর অধীনে সুপার এজেন্ট 140 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1400</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023460</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1402</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017928</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1401</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016025742</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 160 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 4 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1757</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+60174962757</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1210</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1443</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016433143</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2359</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918436704359</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 165 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2695</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016018247</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1125</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010376</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!-- NEW: HELPLINE Detail Content -->
-            <div id="helpline-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">হেল্পলাইন সাপোর্ট</h2>
-                
-                <div class="dark-info-box p-6 rounded-xl text-center mx-auto max-w-md shadow-lg border-4 border-custom-yellow">
-                    <h3 class="text-2xl font-bold text-custom-yellow uppercase mb-2">জরুরী যোগাযোগ</h3>
-                    <p class="text-3xl font-extrabold text-white mb-2">Himu vai</p>
-                    <p class="text-4xl font-mono font-bold text-custom-yellow">+01602471548</p>
-                    <a href="tel:+01602471548" class="inline-block mt-4 px-6 py-2 bg-custom-yellow text-[#1B5E20] font-bold rounded-full shadow-md hover:bg-yellow-400 transition duration-300 transform hover:scale-105">
-                        কল করুন
-                    </a>
-                </div>
-            </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 31 এর অধীনে সুপার এজেন্ট 131 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1301</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917427930356</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1307</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016023325</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1305</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917047105750</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!-- NEW: USER QUESTION Detail Content -->
-            <div id="user-question-detail" class="detail-section hidden space-y-6">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">ব্যবহারকারীর প্রশ্নাবলী (FAQ)</h2>
-                
-                <div class="space-y-4">
-                    
-                    <!-- FAQ Item 1 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">১. ১০০০ টাকা ডিপোজিট করলে বোনাস কত?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: নতুন গ্রাহকদের জন্য $400 টাকা ডিপোজিট বোনাস দেওয়া হয়। বিস্তারিত জানতে এজেন্টের সাথে যোগাযোগ করুন।</p>
-                    </div>
-                    
-                    <!-- FAQ Item 2 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">২. একাউন্ট খুলতে কি কি লাগে?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: শুধুমাত্র আপনার হোয়াটসঅ্যাপ নম্বর এবং একটি ইউজারনেম প্রয়োজন। আপনার পাসওয়ার্ড কখনোই কারো সাথে শেয়ার করবেন না।</p>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 154 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1166</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010476</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1009</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024558</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1535</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022490</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 101 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 6 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">2222</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917602435193</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1676</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917384459225</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1111</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97430577400</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1212</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024558</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1365</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919076527641</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1515</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+97474751206</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- FAQ Item 3 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৩. ডিপোজিট করতে সর্বনিম্ন কত টাকা প্রয়োজন?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: সাধারণত সর্বনিম্ন ডিপোজিট $200 টাকা। তবে এজেন্ট ভেদে এই পরিমাণ কম বা বেশি হতে পারে।</p>
-                    </div>
-                    
-                    <!-- FAQ Item 4 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৪. উইথড্র করতে কত সময় লাগে?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: উইথড্র সাধারণত 5 থেকে 10 মিনিটের মধ্যে সম্পন্ন হয়। কোনো সমস্যা হলে সাপোর্টে যোগাযোগ করুন।</p>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সুপার এজেন্ট 118 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1897</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917047105254</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1325</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917074378162</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- FAQ Item 5 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৫. অফিশিয়াল সাইটের ঠিকানা কি?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: আমাদের অফিশিয়াল সাইটের ঠিকানা হলো: <a href="https://baaji.cc" class="text-red-500 hover:underline font-bold">Baaji.cc</a> এবং <a href="https://baaji365.live" class="text-red-500 hover:underline font-bold">BAAJI365.LIVE</a>।</p>
-                    </div>
-                    
-                    <!-- FAQ Item 6 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৬. আমি কিভাবে এজেন্টকে চিনব?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: প্রতারণা এড়াতে, শুধুমাত্র আমাদের অফিশিয়াল এজেন্ট লিস্ট (এই সাইটে প্রদর্শিত) থেকে এজেন্টদের সাথে হোয়াটসঅ্যাপের মাধ্যমে যোগাযোগ করুন।</p>
-                    </div>
-                    
-                    <!-- FAQ Item 7 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৭. একাউন্ট ব্লক হলে কি করব?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: যদি আপনার একাউন্ট ব্লক হয়ে যায়, তাহলে আপনার আইডি নম্বরসহ অ্যাডমিন অথবা হেল্পলাইন সাপোর্টে যোগাযোগ করুন।</p>
-                    </div>
-                    
-                    <!-- FAQ Item 8 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৮. বাজি ধরার কোনো নির্দিষ্ট নিয়ম আছে কি?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: হ্যাঁ, অবশ্যই। প্রতিটি গেম বা বাজির জন্য নির্দিষ্ট নিয়ম আছে। বাজি ধরার আগে নিয়মাবলী ভালোভাবে জেনে নিন।</p>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 70 এর অধীনে সুপার এজেন্ট 113 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 13 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1666</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022472</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1145</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91 80160 25319</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1126</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91016025510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1174</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024879</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1126</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+91016025510</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1018</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+919547094835</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1674</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918695410674</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- FAQ Item 9 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">৯. এজেন্ট যদি আমার সাথে প্রতারণা করে?</h3>
-                        <p class="text-base font-semibold text-red-600">উত্তর: আপনি যদি কোনো এজেন্টের বিরুদ্ধে প্রতারণার শিকার হন, তাহলে দ্রুত তার আইডি নম্বরসহ অভিযোগ ফর্মে যোগাযোগ করুন।</p>
-                    </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 162 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1049</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917501394049</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1007</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024773</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- FAQ Item 10 -->
-                    <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
-                        <h3 class="text-lg font-bold text-custom-green mb-1">১০. পাসওয়ার্ড পরিবর্তন করা কি জরুরি?</h3>
-                        <p class="text-base text-gray-700 font-semibold">উত্তর: হ্যাঁ, এজেন্ট আপনার একাউন্ট খুলে দেওয়ার পর অবশ্যই সাথে সাথে আপনার পাসওয়ার্ড পরিবর্তন করে নিন।</p>
-                    </div>
-                </div>
-            </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 60 এর অধীনে সুপার এজেন্ট 135 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 1 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1002</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016027766</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!-- NEW: BAAJI365 UPDATE NEWS Detail Content -->
-            <div id="news-detail" class="detail-section hidden space-y-6 text-center">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">BAAJI365 আপডেট নিউজ</h2>
-                
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green max-w-xl mx-auto">
-                    <h3 class="text-2xl font-bold text-red-600 mb-2">কোনো নতুন আপডেট নেই</h3>
-                    <p class="text-xl font-semibold text-custom-green">বর্তমানে কোনো খবর বা আপডেট দেওয়া হয়নি। খুব শীঘ্রই আমরা নতুন তথ্য নিয়ে আসব।</p>
-                    <div class="text-6xl mt-4">⏳</div>
-                </div>
-            </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 133 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 4 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1010</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+23058963805</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1747</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016024847</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1133</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010824</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1532</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016025404</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <!-- NEW: QUIZ Detail Content -->
-            <div id="quiz-detail" class="detail-section hidden space-y-6 text-center">
-                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">কুইজ প্রতিযোগিতা</h2>
-                
-                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green max-w-xl mx-auto">
-                    <h3 class="text-2xl font-bold text-custom-green mb-2">আপডেট আসবে পরে</h3>
-                    <p class="text-xl font-semibold text-gray-700">কুইজ সংক্রান্ত তথ্য খুব শীঘ্রই আপডেট করা হবে। সাথে থাকুন!</p>
-                    <div class="text-6xl mt-4">💡</div>
-                </div>
-            </div>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 67 এর অধীনে সুপার এজেন্ট 118 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1802</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918348216114</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1801</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016017916</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-        </div> <!-- End of Detail View Container -->
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 107 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 2 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1122</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917718206812</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1031</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016022728</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-        
-    </main>
-    
-    <!-- Footer -->
-    <footer class="text-center py-6 mt-8 border-t border-white/20">
-        <p class="text-sm text-white/70">
-            &copy; 2024 Winpku Replica Site | Developed with Himuvai.
-        </p>
-    </footer>
+                                        <h3 class="text-xl font-bold text-custom-yellow">সাব এডমিন 55 এর অধীনে সুপার এজেন্ট 138 এর অধীনে সর্বমোট মাস্টার এজেন্ট আছে 3 জন</h3>
+                    <div class="agent-table-container">
+                        <table class="w-full text-left rounded-lg overflow-hidden shadow-2xl">
+                            <thead class="bg-dark-green text-white text-xs md:text-sm uppercase tracking-wider">
+                                <tr><th class="py-3 px-2 md:px-4">ID NO</th><th class="py-3 px-2 md:px-4">AGENT</th><th class="py-3 px-2 md:px-4">APP</th><th class="py-3 px-2 md:px-4">PHONE NUMBER</th><th class="py-3 px-2 md:px-4">COMPLAIN</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-800 bg-white">
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1843</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+918016010698</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1893</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+917478363528</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                                <tr class="hover:bg-green-50"><td class="py-3 px-2 md:px-4 font-bold">1198</td><td class="py-3 px-2 md:px-4">মাষ্টার</td><td class="py-3 px-2 md:px-4 text-red-500">❌</td><td class="py-3 px-2 md:px-4 font-mono text-custom-green">+9180160 25664</td><td class="py-3 px-2 md:px-4"><a href="#" class="text-red-500 font-semibold hover:underline">অভিযোগ</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-    <!-- JavaScript for View Switching -->
-    <script>
-        // Get the main containers
-        const homeView = document.getElementById('home-view');
-        const detailView = document.getElementById('detail-view');
-        const detailSections = document.querySelectorAll('.detail-section');
+                        <div id="helpline-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">হেল্পলাইন সাপোর্ট</h2>
+                
+                <div class="dark-info-box p-6 rounded-xl text-center mx-auto max-w-md shadow-lg border-4 border-custom-yellow">
+                    <h3 class="text-2xl font-bold text-custom-yellow uppercase mb-2">জরুরী যোগাযোগ</h3>
+                    <p class="text-3xl font-extrabold text-white mb-2">Himu vai</p>
+                    <p class="text-4xl font-mono font-bold text-custom-yellow">+01602471548</p>
+                    <a href="tel:+01602471548" class="inline-block mt-4 px-6 py-2 bg-custom-yellow text-[#1B5E20] font-bold rounded-full shadow-md hover:bg-yellow-400 transition duration-300 transform hover:scale-105">
+                        কল করুন
+                    </a>
+                </div>
+            </div>
 
-        // Function to show the selected detail page
-        function showDetail(categoryId) {
-            // Hide all detail sections
-            detailSections.forEach(section => {
-                section.classList.add('hidden');
-            });
+                        <div id="user-question-detail" class="detail-section hidden space-y-6">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">ব্যবহারকারীর প্রশ্নাবলী (FAQ)</h2>
+                
+                <div class="space-y-4">
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">১. ১০০০ টাকা ডিপোজিট করলে বোনাস কত?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: নতুন গ্রাহকদের জন্য $400 টাকা ডিপোজিট বোনাস দেওয়া হয়। বিস্তারিত জানতে এজেন্টের সাথে যোগাযোগ করুন।</p>
+                    </div>
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">২. একাউন্ট খুলতে কি কি লাগে?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: শুধুমাত্র আপনার হোয়াটসঅ্যাপ নম্বর এবং একটি ইউজারনেম প্রয়োজন। আপনার পাসওয়ার্ড কখনোই কারো সাথে শেয়ার করবেন না।</p>
+                    </div>
 
-            // Hide the home view
-            homeView.classList.add('hidden');
-            
-            // Show the detail view container
-            detailView.classList.remove('hidden');
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৩. ডিপোজিট করতে সর্বনিম্ন কত টাকা প্রয়োজন?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: সাধারণত সর্বনিম্ন ডিপোজিট $200 টাকা। তবে এজেন্ট ভেদে এই পরিমাণ কম বা বেশি হতে পারে।</p>
+                    </div>
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৪. উইথড্র করতে কত সময় লাগে?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: উইথড্র সাধারণত 5 থেকে 10 মিনিটের মধ্যে সম্পন্ন হয়। কোনো সমস্যা হলে সাপোর্টে যোগাযোগ করুন।</p>
+                    </div>
 
-            // Show the specific detail section
-            const targetSection = document.getElementById(categoryId + '-detail');
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-                // Scroll to the top of the page for better UX
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৫. অফিশিয়াল সাইটের ঠিকানা কি?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: আমাদের অফিশিয়াল সাইটের ঠিকানা হলো: <a href="https://baaji.cc" class="text-red-500 hover:underline font-bold">Baaji.cc</a> এবং <a href="https://baaji365.live" class="text-red-500 hover:underline font-bold">BAAJI365.LIVE</a>।</p>
+                    </div>
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৬. আমি কিভাবে এজেন্টকে চিনব?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: প্রতারণা এড়াতে, শুধুমাত্র আমাদের অফিশিয়াল এজেন্ট লিস্ট (এই সাইটে প্রদর্শিত) থেকে এজেন্টদের সাথে হোয়াটসঅ্যাপের মাধ্যমে যোগাযোগ করুন।</p>
+                    </div>
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৭. একাউন্ট ব্লক হলে কি করব?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: যদি আপনার একাউন্ট ব্লক হয়ে যায়, তাহলে আপনার আইডি নম্বরসহ অ্যাডমিন অথবা হেল্পলাইন সাপোর্টে যোগাযোগ করুন।</p>
+                    </div>
+                    
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৮. বাজি ধরার কোনো নির্দিষ্ট নিয়ম আছে কি?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: হ্যাঁ, অবশ্যই। প্রতিটি গেম বা বাজির জন্য নির্দিষ্ট নিয়ম আছে। বাজি ধরার আগে নিয়মাবলী ভালোভাবে জেনে নিন।</p>
+                    </div>
 
-        // Function to go back to the home page
-        function showHome() {
-            // Hide the detail view container
-            detailView.classList.add('hidden');
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">৯. এজেন্ট যদি আমার সাথে প্রতারণা করে?</h3>
+                        <p class="text-base font-semibold text-red-600">উত্তর: আপনি যদি কোনো এজেন্টের বিরুদ্ধে প্রতারণার শিকার হন, তাহলে দ্রুত তার আইডি নম্বরসহ অভিযোগ ফর্মে যোগাযোগ করুন।</p>
+                    </div>
 
-            // Hide all detail sections
-            detailSections.forEach(section => {
-                section.classList.add('hidden');
-            });
+                                        <div class="info-box p-4 rounded-xl shadow-md border-2 border-custom-green">
+                        <h3 class="text-lg font-bold text-custom-green mb-1">১০. পাসওয়ার্ড পরিবর্তন করা কি জরুরি?</h3>
+                        <p class="text-base text-gray-700 font-semibold">উত্তর: হ্যাঁ, এজেন্ট আপনার একাউন্ট খুলে দেওয়ার পর অবশ্যই সাথে সাথে আপনার পাসওয়ার্ড পরিবর্তন করে নিন।</p>
+                    </div>
+                </div>
+            </div>
 
-            // Show the home view
-            homeView.classList.remove('hidden');
-            
-            // Scroll to the top of the page
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+                        <div id="news-detail" class="detail-section hidden space-y-6 text-center">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">BAAJI365 আপডেট নিউজ</h2>
+                
+                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green max-w-xl mx-auto">
+                    <h3 class="text-2xl font-bold text-red-600 mb-2">কোনো নতুন আপডেট নেই</h3>
+                    <p class="text-xl font-semibold text-custom-green">বর্তমানে কোনো খবর বা আপডেট দেওয়া হয়নি। খুব শীঘ্রই আমরা নতুন তথ্য নিয়ে আসব।</p>
+                    <div class="text-6xl mt-4">⏳</div>
+                </div>
+            </div>
+
+                        <div id="quiz-detail" class="detail-section hidden space-y-6 text-center">
+                <h2 class="text-3xl font-extrabold uppercase text-custom-yellow text-center border-b-4 border-custom-yellow pb-2">কুইজ প্রতিযোগিতা</h2>
+                
+                <div class="info-box p-6 rounded-xl bg-white text-gray-800 shadow-xl border-4 border-custom-green max-w-xl mx-auto">
+                    <h3 class="text-2xl font-bold text-custom-green mb-2">আপডেট আসবে পরে</h3>
+                    <p class="text-xl font-semibold text-gray-700">কুইজ সংক্রান্ত তথ্য খুব শীঘ্রই আপডেট করা হবে। সাথে থাকুন!</p>
+                    <div class="text-6xl mt-4">💡</div>
+                </div>
+            </div>
+
+        </div>         
+    </main>
+    
+        <footer class="text-center py-6 mt-8 border-t border-white/20">
+        <p class="text-sm text-white/70">
+            &copy; 2024 Winpku Replica Site | Developed with Gemini.
+        </p>
+    </footer>
+
+        <script>
+        // Get the main containers
+        const homeView = document.getElementById('home-view');
+        const detailView = document.getElementById('detail-view');
+        const detailSections = document.querySelectorAll('.detail-section');
+
+        // Function to show the selected detail page
+        function showDetail(categoryId) {
+            // Hide all detail sections
+            detailSections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Hide the home view
+            homeView.classList.add('hidden');
+            
+            // Show the detail view container
+            detailView.classList.remove('hidden');
+
+            // Show the specific detail section
+            const targetSection = document.getElementById(categoryId + '-detail');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                // Scroll to the top of the page for better UX
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Function to go back to the home page
+        function showHome() {
+            // Hide the detail view container
+            detailView.classList.add('hidden');
+
+            // Hide all detail sections
+            detailSections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the home view
+            homeView.classList.remove('hidden');
+            
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
-
-
