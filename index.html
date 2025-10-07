@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Winpku Replica Site - Mobile Version, বাংলা ভাষায় সেরা বেটিং প্ল্যাটফর্ম">
+    <meta name="keywords" content="Winpku, Baaji365, betting, mobile betting, Bengali">
     <title>Winpku Replica Site - Mobile Version</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
@@ -40,7 +42,7 @@
         }
         .mobile-menu.active { left: 0; }
         .mobile-menu-overlay {
-            display: none;
+            opacity: 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -48,8 +50,12 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 40;
+            transition: opacity 0.4s ease-in-out;
         }
-        .mobile-menu.active + .mobile-menu-overlay { display: block; }
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
         .mobile-menu-header {
             display: flex;
             justify-content: space-between;
@@ -85,8 +91,8 @@
         }
     </style>
 </head>
-<body class="bg-custom-green min-h-screen text-white">
 
+<body class="bg-custom-green min-h-screen text-white">
     <header class="bg-dark-green shadow-xl py-3 px-4 sticky top-0 z-20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="logo-container flex items-center">
@@ -94,9 +100,9 @@
                     <span class="baaji-part1">baa</span><span class="baaji-j text-[#E63946]">j</span><span class="baaji-i">i</span><span class="baaji-dot text-[#E63946]">.</span><span class="baaji-365 text-[#FAD100]">365</span>
                     <span class="logo-live block text-xs text-[#CCCCCC] tracking-wider absolute -bottom-2 left-1/2 transform -translate-x-1/2">LIVE</span>
                 </span>
-                <div class="profile-pic-placeholder w-10 h-10 bg-cover bg-center rounded-full ml-3 border-2 border-white" style="background-image: url('https://i.imgur.com/hkYmaPX.png');"></div>
+                <img src="https://i.imgur.com/hkYmaPX.png" alt="Profile Picture" class="w-10 h-10 rounded-full ml-3 border-2 border-white" loading="lazy">
             </div>
-            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none" aria-label="মেনু খুলুন">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -118,7 +124,7 @@
     <div id="mobile-menu" class="mobile-menu">
         <div class="mobile-menu-header">
             <h3 class="text-xl font-bold text-custom-yellow">MENU</h3>
-            <button id="menu-close" class="text-white focus:outline-none">
+            <button id="menu-close" class="text-white focus:outline-none" aria-label="মেনু বন্ধ করুন">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -137,10 +143,30 @@
     </div>
 
     <main class="max-w-7xl mx-auto p-4 sm:p-6 md:p-8 space-y-8">
-        <!-- Main content remains unchanged, omitted for brevity -->
+        <div id="home" class="content-section">হোম পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="admin" class="content-section hidden">অ্যাডমিন পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="super" class="content-section hidden">সুপার পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="master" class="content-section hidden">মাস্টার পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="helpline" class="content-section hidden">হেল্পলাইন পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="user-question" class="content-section hidden">ইউজার প্রশ্ন পেজের কন্টেন্ট এখানে যাবে</div>
+        <div id="news" class="content-section hidden">বাজি৩৬৫ আপডেট নিউজ এখানে যাবে</div>
+        <div id="quiz" class="content-section hidden">কুইজ পেজের কন্টেন্ট এ-Дxাবে</div>
     </main>
 
     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-green': '#2F7C32',
+                        'dark-green': '#1B5E20',
+                        'custom-yellow': '#FFEB3B',
+                        'custom-orange': '#FF9800',
+                    }
+                }
+            }
+        }
+
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -151,17 +177,23 @@
             mobileMenuOverlay.classList.toggle('active');
         }
 
+        function showHome() {
+            document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+            document.getElementById('home').classList.remove('hidden');
+        }
+
+        function showDetail(section) {
+            document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(section).classList.remove('hidden');
+        }
+
         menuToggle.addEventListener('click', toggleMenu);
         menuClose.addEventListener('click', toggleMenu);
     </script>
 </body>
-</html>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+</html>    
+
+Bangla
 
   <!-- Main Content -->
   <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-8 flex-grow">
@@ -621,6 +653,7 @@
   </script>
 </body>
 </html>
+
 
 
 
